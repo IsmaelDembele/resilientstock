@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import { useMutation, focusManager, QueryClient } from "react-query";
+import { useMutation, focusManager } from "react-query";
 import axios from "axios";
-import { getIndices } from "../apis";
+// import { getIndices } from "../apis";
 
 interface IIndice {
   indice: string;
@@ -10,10 +9,6 @@ interface IIndice {
 }
 
 const Indice: React.FC<IIndice> = ({ indice, qty }) => {
-  // const [myQty, setMyQty] = useState<number>(qty);
-
-  const queryClient = new QueryClient({});
-
   const mutation = useMutation(
     (newIndice: IIndice) => {
       return axios.post("http://localhost:5000/removeOne", newIndice);
@@ -27,7 +22,6 @@ const Indice: React.FC<IIndice> = ({ indice, qty }) => {
 
   const handleClick = async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     mutation.mutate({ indice: indice, qty: qty });
-    // queryClient.re
   };
 
   return (

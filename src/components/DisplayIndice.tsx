@@ -1,21 +1,12 @@
-import { QueryClient, useQuery } from "react-query";
+import { useContext } from "react";
+import { useQuery } from "react-query";
 import { getIndices } from "../apis";
+import { pageContext, TContext } from "../context";
 import Indice from "./Indice";
 
 function DisplayIndice() {
-  // Queries
-
-  const queryClient = new QueryClient();
-
-  const { data, status } = useQuery("getindices", getIndices, {
-    
-    notifyOnChangeProps: ["data"],
-    
-  });
-
-  console.log(status);
-
-  console.log(data);
+  const { page } = useContext(pageContext) as TContext;
+  const { data } = useQuery(["getindices", page], () => getIndices(page));
 
   return (
     <div className="display_indice">

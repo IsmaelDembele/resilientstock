@@ -1,5 +1,4 @@
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import axios from "axios";
 import { useState } from "react";
 import { useMutation, focusManager } from "react-query";
 import { postIndice } from "../apis";
@@ -7,25 +6,17 @@ import { postIndice } from "../apis";
 function AddNew() {
   const [stock, setStock] = useState<string>("");
 
-  const mutation = useMutation(
-    (newIndice: string) => {
-      return axios.post("http://localhost:5000/addindice", { indice: newIndice });
+  const mutation = useMutation((newIndice: string) => postIndice(newIndice), {
+    onSuccess: () => {
+      focusManager.setFocused(true);
     },
-    {
-      onSuccess: () => {
-        focusManager.setFocused(true);
-      },
-    }
-  );
+  });
 
   const handleClick = (
     e: React.MouseEvent<SVGSVGElement, MouseEvent> | React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
-    // console.log(stock);
-
     mutation.mutate(stock);
-
     setStock("");
   };
 

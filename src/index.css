@@ -16,7 +16,8 @@ body {
     "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.6rem;
   color: #444;
-  min-height: 100vh;
+  /* min-height: 80vh; */
+  /* height: 30px; */
   display: flex;
   /* align-items: center; */
   justify-content: center;
@@ -27,7 +28,9 @@ body {
   background-color: #caf0f8;
   margin: 5rem;
   width: 30rem;
-  min-height: 30rem;
+  min-height: 75vh;
+  /* height: 70vh; */
+  overflow: hidden;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: flex;
@@ -94,7 +97,7 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .indice,
@@ -112,4 +115,49 @@ body {
 
 .remove:hover {
   color: darkred;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 5rem;
+  padding: 2px;
+  border-radius: 3px;
+  height: 3rem;
+  background-color: #caf0f8;
+}
+
+.pageNumber {
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.pageNumberCurrent {
+  color: blue;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.previous,
+.next {
+  cursor: pointer;
+}
+.previousInactif,
+.nextInactif {
+  color: #ccc;
+}
+
+/* --------------PHONE LAYOUT --------------------------*/
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 2rem;
+    width: 90vw;
+  }
+
+  .display_indice {
+    width: 100%;
+  }
 }
