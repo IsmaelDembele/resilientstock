@@ -1,3 +1,10 @@
+# Objectif
+
+The objective of this project is to help determine in the stock market the indices that tend
+to be green when the whole stock market is red.
+
+Each red day, you look at your portfolio and the green indices.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

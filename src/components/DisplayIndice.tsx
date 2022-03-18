@@ -6,7 +6,9 @@ import Indice from "./Indice";
 
 function DisplayIndice() {
   const { page } = useContext(pageContext) as TContext;
-  const { data } = useQuery(["getindices", page], () => getIndices(page));
+  const { data } = useQuery(["getindices", page], () => getIndices(page), {
+    keepPreviousData: true,
+  });
 
   return (
     <div className="display_indice">
